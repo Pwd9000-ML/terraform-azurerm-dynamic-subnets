@@ -90,8 +90,8 @@ locals {
     LineOfBusiness = var.lob
     Region         = var.region[var.location]
   }
-  coreResourceGroupName = "${var.prefix}-Terraform-Core-Networking-${lower(var.CostCenter[var.lob])}"
-  vnetName              = "${var.prefix}-Terraform-Core-VNET-${lower(var.CostCenter[var.lob])}${random_integer.sa_num.result}"
+  coreResourceGroupName = "${var.prefix}-Core-Networking-${lower(var.CostCenter[var.lob])}"
+  vnetName              = "${var.prefix}-Core-VNET-${lower(var.CostCenter[var.lob])}${random_integer.sa_num.result}"
 
   # Validation: 
   # This section validates input for location of available locations

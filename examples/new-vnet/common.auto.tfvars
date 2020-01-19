@@ -17,7 +17,7 @@ network_ip = "10.2.0.0"
 network_mask = 22
 
 #Global prefix
-prefix = "Demo"
+prefix = "Terraform"
 
 #Subscription Id
 subscriptionid = "00000000-0000-0000-0000-00000000000"
