@@ -1,4 +1,4 @@
-# Terraform Example - Create a new resource group and VNET for this deployment and populate with subnets
+# Terraform Example - Subnets on a new VNET
 
 ## Description
 

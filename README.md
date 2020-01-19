@@ -2,9 +2,8 @@
 
 ## Description
 
-Create dynamic subnets based on a subnet input config/variable input, on an existing or new Azure Virtual Network using Terraform.
-
-This module can be used to do the following subnet tasks based on input:
+Create dynamic subnets based on a subnet input config/variable input, on an existing or new Azure Virtual Network using Terraform.  
+This module can be used to do the following subnet tasks based on input:  
 
 - Create a new resource group and Vnet and populate with subnets based on input variable subnet config.
 - Create a new Vnet in an existing resource group and populate with subnets based on input variable subnet config.
@@ -31,15 +30,16 @@ This module can be used to do the following subnet tasks based on input:
   
 ## Module Outputs
 
-Module outputs are only generated for new resources created in this module e.g. Resource Group and/or Azure Virtual network.
-Outputs are not generated if subnets are populated on an existing Azure Virtual Network.
+Module outputs are only generated for new resources created in this module e.g. Resource Group and/or Azure Virtual network.  
+Outputs are not generated if subnets are populated on an existing Azure Virtual Network.  
 
 - core_network_rg_id - Output Resource Group ID. (Only if new resource group was created as part of this deployment).
 - core_vnet_id -  Output Azure Virtual Network ID. (Only if new Vnet was created as part of this deployment).
 
-## Example 1: Simple example where new Resource Group and Vnet will be created (Default)
+## Example 1
 
-This example requires no input and will create a new resource group and vnet populated with demo subnets based on the default input variables.
+Simple example where a new Resource Group and Vnet will be created (Default).  
+This example requires no input and will create a new resource group and vnet populated with demo subnets based on the default input variables.  
 
 ```hcl
 provider "azurerm" {
@@ -51,9 +51,10 @@ module "dynamic-subnets" {
 }
 ```
 
-## Example 2: Simple example where new Vnet with custom DNS will be created in an existing resource group
+## Example 2
 
-This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.
+Simple example where a new Vnet with custom DNS will be created in an existing resource group.  
+This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.  
 
 ```hcl
 provider "azurerm" {
@@ -61,16 +62,19 @@ provider "azurerm" {
 }
 
 module "dynamic-subnets" {
-    create_rg               = false     # Existing VNET Resource group name must be provided.
+    create_rg               = false     #Existing VNET Resource group name must be provided.
     virtual_network_rg_name = "Core-Networking-Rg"
     dns_entries             = ["10.1.0.10", "10.1.0.138"]
     source                  = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
 }
 ```
 
-## Example 3: Simple example where subnets are populated dynamically onto an existing Vnet
+## Example 3
 
-This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.
+Simple example where subnets are populated dynamically onto an existing Vnet.  
+This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.  
+This example asumes a network address space of "10.1.0.0/22" with no subnets.  
+For more advanced examples see: [examples](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/tree/master/examples)  
 
 ```hcl
 provider "azurerm" {
@@ -78,8 +82,8 @@ provider "azurerm" {
 }
 
 module "dynamic-subnets" {
-    create_rg               = false     # Existing VNET Resource group name must be provided.
-    create_vnet             = false     # Existing VNET name must be provided.
+    create_rg               = false     #Existing VNET Resource group name must be provided.
+    create_vnet             = false     #Existing VNET name must be provided.
     virtual_network_rg_name = "Core-Networking-Rg"
     virtual_network_name    = "Core-VNET-9000"
     source                  = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
