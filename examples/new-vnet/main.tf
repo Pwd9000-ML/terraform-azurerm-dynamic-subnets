@@ -12,7 +12,6 @@ provider "azurerm" {
 ##################################################
 variable "BillingCode" {
   type        = map(string)
-  description = "Optional Input - Billing code map based on environment. (used for common tags defined in locals)"
   default = {
     Development = "100"
     UAT         = "101"
@@ -21,15 +20,16 @@ variable "BillingCode" {
     Testing     = "104"
     Production  = "105"
   }
+  description = "Optional Input - Billing code map based on environment. (used for common tags defined in locals)"
 }
 variable "CostCenter" {
   type        = map(string)
-  description = "Optional Input - Cost center map based on line of business. (used for naming conventions defined in locals)"
   default = {
     IT          = "IT"
     Development = "DEV"
     Research    = "RND"
   }
+  description = "Optional Input - Cost center map based on line of business. (used for naming conventions defined in locals)"
 }
 variable "dns_servers" {
   type        = list(string)
@@ -90,8 +90,8 @@ locals {
     LineOfBusiness = var.lob
     Region         = var.region[var.location]
   }
-  coreResourceGroupName = "${var.prefix}-Core-Networking-${lower(var.CostCenter[var.lob])}"
-  vnetName              = "${var.prefix}-Core-VNET-${lower(var.CostCenter[var.lob])}${random_integer.sa_num.result}"
+  core_resourcegroupname = "${var.prefix}-Core-Networking-${lower(var.CostCenter[var.lob])}"
+  vnet_name              = "${var.prefix}-Core-VNET-${lower(var.CostCenter[var.lob])}${random_integer.sa_num.result}"
 
   # Validation: 
   # This section validates input for location of available locations
@@ -118,8 +118,8 @@ module "dynamic-subnets" {
   location                = var.location
   network_address_ip      = var.network_ip
   network_address_mask    = var.network_mask
-  virtual_network_rg_name = local.coreResourceGroupName
-  virtual_network_name    = local.vnetName
+  virtual_network_rg_name = local.core_resourcegroupname
+  virtual_network_name    = local.vnet_name
   subnet_config           = var.subnet_config
 }
 
