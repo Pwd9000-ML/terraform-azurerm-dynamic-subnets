@@ -26,7 +26,6 @@ locals {
   address_space = join("/", [var.network_address_ip, tostring(var.network_address_mask)])
   dynamic_subnets = [
     for map in var.subnet_config : {
-      network_name = var.create_vnet ? tostring(azurerm_virtual_network.core_vnet[0].name) : tostring(data.azurerm_virtual_network.core_vnet[0].name)
       subnet_name  = map.name
       cidr_block   = join("/", [map.cidr_base, tostring(map.mask)])
     }
@@ -55,11 +54,11 @@ resource "azurerm_virtual_network" "core_vnet" {
 
 resource "azurerm_subnet" "dynamic" {
   for_each = {
-    for subnet in local.dynamic_subnets : "${subnet.network_name}.${subnet.subnet_name}.${subnet.cidr_block}" => subnet
+    for subnet in local.dynamic_subnets : "${subnet.subnet_name}.${subnet.cidr_block}" => subnet
   }
 
   name                 = each.value.subnet_name
   resource_group_name  = var.create_rg ? tostring(azurerm_resource_group.core_network_rg[0].name) : tostring(data.azurerm_resource_group.core_network_rg[0].name)
-  virtual_network_name = each.value.network_name
+  virtual_network_name = var.create_vnet ? tostring(azurerm_virtual_network.core_vnet[0].name) : tostring(data.azurerm_virtual_network.core_vnet[0].name)
   address_prefix       = each.value.cidr_block
 }

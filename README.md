@@ -37,7 +37,7 @@ Outputs are not generated if subnets are populated on an existing Azure Virtual 
 - core_network_rg_id - Output Resource Group ID. (Only if new resource group was created as part of this deployment).
 - core_vnet_id -  Output Azure Virtual Network ID. (Only if new Vnet was created as part of this deployment).
 
-## Example
+## Example 1: Simple example where new Resource Group and Vnet will be created (Default)
 
 This example requires no input and will create a new resource group and vnet populated with demo subnets based on the default input variables.
 
@@ -48,5 +48,40 @@ provider "azurerm" {
 
 module "dynamic-subnets" {
     source  = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
+}
+```
+
+## Example 2: Simple example where new Vnet with custom DNS will be created in an existing resource group
+
+This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.
+
+```hcl
+provider "azurerm" {
+    version = "~>1.38.0"
+}
+
+module "dynamic-subnets" {
+    create_rg               = false     # Existing VNET Resource group name must be provided.
+    virtual_network_rg_name = "Core-Networking-Rg"
+    dns_entries             = ["10.1.0.10", "10.1.0.138"]
+    source                  = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
+}
+```
+
+## Example 3: Simple example where subnets are populated dynamically onto an existing Vnet
+
+This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.
+
+```hcl
+provider "azurerm" {
+    version = "~>1.38.0"
+}
+
+module "dynamic-subnets" {
+    create_rg               = false     # Existing VNET Resource group name must be provided.
+    create_vnet             = false     # Existing VNET name must be provided.
+    virtual_network_rg_name = "Core-Networking-Rg"
+    virtual_network_name    = "Core-VNET-9000"
+    source                  = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
 }
 ```
