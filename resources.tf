@@ -26,8 +26,8 @@ locals {
   address_space = join("/", [var.network_address_ip, tostring(var.network_address_mask)])
   dynamic_subnets = [
     for map in var.subnet_config : {
-      subnet_name  = map.name
-      cidr_block   = join("/", [map.cidr_base, tostring(map.mask)])
+      subnet_name = map.name
+      cidr_block  = join("/", [map.cidr_base, tostring(map.mask)])
     }
   ]
 }
