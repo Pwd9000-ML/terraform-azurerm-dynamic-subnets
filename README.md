@@ -72,8 +72,8 @@ module "dynamic-subnets" {
 ## Example 3
 
 Simple example where subnets are populated dynamically onto an existing Vnet.  
-This example requires an exisitng resource group and will create a new vnet populated with demo subnets based on the default input variables.  
-This example asumes a network address space of "10.1.0.0/22" with no subnets.  
+This example requires an exisitng resource group and VNET that will be populated with demo subnets based on the default input variables.  
+This example asumes a network address space of "10.1.0.0/22" with no subnets exists.  
 For more advanced examples see: [examples](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/tree/master/examples)  
 
 ```hcl
