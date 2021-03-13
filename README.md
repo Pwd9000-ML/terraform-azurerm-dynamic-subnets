@@ -11,8 +11,8 @@ This module can be used to do the following subnet tasks based on input:
   
 ## Providers and terraform version requirements
   
-- terraform version ~> 0.12.19
-- provider "azurerm" ~> 1.39.0
+- terraform version ~> 0.14
+- provider "azurerm" ~> 2.41
   
 ## Module Input variables
 
@@ -43,7 +43,7 @@ This example requires no input and will create a new resource group and vnet pop
 
 ```hcl
 provider "azurerm" {
-    version = "~>1.38.0"
+    version = "~>2.41"
 }
 
 module "dynamic-subnets" {
@@ -58,7 +58,7 @@ This example requires an exisitng resource group and will create a new vnet popu
 
 ```hcl
 provider "azurerm" {
-    version = "~>1.38.0"
+    version = "~>2.41"
 }
 
 module "dynamic-subnets" {
@@ -78,7 +78,7 @@ For more advanced examples see: [examples](https://github.com/Pwd9000-ML/terrafo
 
 ```hcl
 provider "azurerm" {
-    version = "~>1.38.0"
+    version = "~>2.41"
 }
 
 module "dynamic-subnets" {
