@@ -1,8 +1,8 @@
 #Specify the resource group name that contains the Azure Vnet.
-resourcegroupname = "Core-Networking-Rg"
+resourcegroupname = "My-ResourceGroup-Name"
 
 #Specify the Vnet name.
-virtualnetworkname = "Core-VNET-9000"
+virtualnetworkname = "My-VNET-Name"
 
 #Subscription Id.
 subscriptionid = "00000000-0000-0000-0000-00000000000"
