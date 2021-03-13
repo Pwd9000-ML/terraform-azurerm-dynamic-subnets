@@ -44,7 +44,6 @@ This example requires no input and will create a new resource group and vnet pop
 ```hcl
 provider "azurerm" {
     features {}
-    version = "~>2.41"
 }
 
 module "dynamic-subnets" {
@@ -60,7 +59,6 @@ This example requires an exisitng resource group and will create a new vnet popu
 ```hcl
 provider "azurerm" {
     features {}
-    version = "~>2.41"
 }
 
 module "dynamic-subnets" {
@@ -82,7 +80,6 @@ For more advanced examples see: [examples](https://github.com/Pwd9000-ML/terrafo
 ```hcl
 provider "azurerm" {
     features {}
-    version = "~>2.41"
 }
 
 module "dynamic-subnets" {
