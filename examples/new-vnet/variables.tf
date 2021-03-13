@@ -1,7 +1,7 @@
 ##################################################
 # VARIABLES                                      #
 ##################################################
-variable "BillingCode" {
+variable "billing_code" {
   type        = map(string)
   default = {
     Development = "100"
@@ -13,7 +13,7 @@ variable "BillingCode" {
   }
   description = "Optional Input - Billing code map based on environment. (used for common tags defined in locals)"
 }
-variable "CostCenter" {
+variable "cost_center" {
   type        = map(string)
   default = {
     IT          = "IT"

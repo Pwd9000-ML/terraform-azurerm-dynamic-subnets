@@ -13,14 +13,14 @@ provider "azurerm" {
 ##################################################
 locals {
   common_tags = {
-    BillingCode    = var.BillingCode[var.environment]
-    CostCenter     = var.CostCenter[var.lob]
+    billing_code    = var.billing_code[var.environment]
+    cost_center     = var.cost_center[var.lob]
     Environment    = var.environment
     LineOfBusiness = var.lob
     Region         = var.region[var.location]
   }
-  core_resourcegroupname = "${var.prefix}-Core-Networking-${lower(var.CostCenter[var.lob])}"
-  vnet_name              = "${var.prefix}-Core-VNET-${lower(var.CostCenter[var.lob])}${random_integer.sa_num.result}"
+  core_resourcegroupname = "${var.prefix}-Core-Networking-${lower(var.cost_center[var.lob])}"
+  vnet_name              = "${var.prefix}-Core-VNET-${lower(var.cost_center[var.lob])}${random_integer.sa_num.result}"
 
   # Validation: 
   # This section validates input for location of available locations
