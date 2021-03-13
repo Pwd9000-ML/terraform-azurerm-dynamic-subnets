@@ -8,16 +8,16 @@ subnet_config = {
   Dmz2 = {
     name      = "Dmz2"
     mask      = 25
-    cidr_base = "10.2.0.128"
+    cidr_base = "10.2.0.0"
   }
   Prod = {
     name      = "Prod"
     mask      = 24
-    cidr_base = "10.2.1.0"
+    cidr_base = "10.2.0.0"
   }
   Dev = {
     name      = "Dev"
     mask      = 24
-    cidr_base = "10.2.2.0"
+    cidr_base = "10.2.0.0"
   }
 }

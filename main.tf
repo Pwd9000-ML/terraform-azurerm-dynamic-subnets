@@ -53,5 +53,5 @@ resource "azurerm_subnet" "dynamic" {
   name                 = each.value.subnet_name
   resource_group_name  = var.create_rg ? tostring(azurerm_resource_group.core_network_rg[0].name) : tostring(data.azurerm_resource_group.core_network_rg[0].name)
   virtual_network_name = var.create_vnet ? tostring(azurerm_virtual_network.core_vnet[0].name) : tostring(data.azurerm_virtual_network.core_vnet[0].name)
-  address_prefix       = tolist(each.value.cidr_block)
+  address_prefix       = each.value.cidr_block
 }
