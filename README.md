@@ -90,7 +90,7 @@ module "dynamic-subnets" {
 
     create_rg               = false     #Existing VNET Resource group name must be provided.
     create_vnet             = false     #Existing VNET name must be provided.
-    virtual_network_rg_name = "Core-Networking-Rg"
-    virtual_network_name    = "Core-VNET-9000"
+    virtual_network_rg_name = "My-ResourceGroup-Name"
+    virtual_network_name    = "My-VNET-Name"
 }
 ```
