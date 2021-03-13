@@ -5,7 +5,6 @@ provider "azurerm" {
   features {}
   alias           = "core_network"
   subscription_id = var.subscriptionid
-  version         = "~>2.41"
 }
 
 ##################################################
