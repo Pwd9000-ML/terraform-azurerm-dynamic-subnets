@@ -38,7 +38,7 @@ locals {
 module "dynamic-subnets" {
   source = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
   providers = {
-    azuread = azurerm.core_network
+    azurerm = azurerm.core_network
   }
   common_tags             = local.common_tags
   dns_entries             = var.dns_servers

@@ -13,7 +13,7 @@ provider "azurerm" {
 module "dynamic-subnets" {
   source = "github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets"
   providers = {
-    azuread = azurerm.core_network
+    azurerm = azurerm.core_network
   }
   create_rg               = false
   create_vnet             = false
