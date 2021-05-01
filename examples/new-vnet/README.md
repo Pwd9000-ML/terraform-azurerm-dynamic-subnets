@@ -22,14 +22,16 @@ Amend `subnet_config.auto.tfvars` to populate the newly created VNET with releva
 2. Amend the .tf file and .tfvars file with desired variables.
 3. Log into azure using CLI "az login".
 4. **BUILD:**
-```
+
+```HCL
 terraform init
 terraform plan -out deploy.tfplan
 terraform apply deploy.tfplan
 ```
 
 5. **DESTROY:**
-```
+
+```HCL
 terraform plan -destroy -out destroy.tfplan
 terraform apply destroy.tfplan
 ```
@@ -41,14 +43,14 @@ terraform apply destroy.tfplan
   
 ## Root module input variables
   
-- `billing_code` - (Otional) Billing code map based on environment. (Used for common tags defined in locals).
+- `billing_code` - (Optional) Billing code map based on environment. (Used for common tags defined in locals).
 - `cost_center` - (Optional) Cost center map based on line of business. (Used for naming conventions defined in locals).
 - `dns_servers` - (Optional) Set custom dns config. If no values specified, this defaults to Azure DNS.
 - `environment` - (Required) Value to describe the environment. Primarily used for tagging and naming resources. (Used for naming conventions defined in locals).
 - `lob` - (Required) Describes line of business. (Used for naming conventions defined in locals; e.g. IT, Development, Research).
 - `location` - (Required) Location in azure where resources will be created. (ONLY accepted values [validation]: westeurope, centralus, eastasia).
-- `network_ip` - (Required) Network IP to contrsuct network address space.
-- `network_mask` - (Required) Network address mask to contrsuct network address space.
+- `network_ip` - (Required) Network IP to construct network address space.
+- `network_mask` - (Required) Network address mask to construct network address space.
 - `prefix` - (Optional) Used for naming conventions defined in locals.
 - `region` - (Optional) Regional map based on location. (Used for naming conventions defined in locals).
 - `subscriptionid` - (Required) Subscription ID used for azurerm provider.
