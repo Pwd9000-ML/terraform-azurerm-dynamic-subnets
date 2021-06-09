@@ -48,7 +48,7 @@ terraform apply destroy.tfplan
 - `dns_servers` - (Optional) Set custom dns config. If no values specified, this defaults to Azure DNS.
 - `environment` - (Required) Value to describe the environment. Primarily used for tagging and naming resources. (Used for naming conventions defined in locals).
 - `lob` - (Required) Describes line of business. (Used for naming conventions defined in locals; e.g. IT, Development, Research).
-- `location` - (Required) Location in azure where resources will be created. (ONLY accepted values [validation]: westeurope, centralus, eastasia).
+- `location` - (Required) Location in azure where resources will be created. (ONLY accepted values [validation]: uksouth, westeurope, centralus, eastasia).
 - `network_ip` - (Required) Network IP to construct network address space.
 - `network_mask` - (Required) Network address mask to construct network address space.
 - `prefix` - (Optional) Used for naming conventions defined in locals.
