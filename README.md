@@ -11,8 +11,8 @@ This module can be used to do the following subnet tasks based on input:
   
 ## Providers and terraform version requirements
   
-- terraform version ~> 0.14
-- provider "azurerm" ~> 2.41
+- terraform version ~> 1.0.0
+- provider "azurerm" ~> 2.62
   
 ## Module Input variables
 

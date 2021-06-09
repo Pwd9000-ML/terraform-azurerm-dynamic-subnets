@@ -41,8 +41,8 @@ terraform apply destroy.tfplan
 
 ## Providers and terraform version requirements
   
-- terraform version ~> 0.14
-- provider "azurerm" ~> 2.41
+- terraform version ~> 1.0.0
+- provider "azurerm" ~> 2.62
   
 ## Root module Input variables
   
