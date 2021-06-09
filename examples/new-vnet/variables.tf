@@ -59,6 +59,7 @@ variable "region" {
     westeurope = "EMEA"
     centralus  = "NA"
     eastasia   = "APAC"
+    uksouth    = "UK"
   }
 }
 variable "subscriptionid" {
