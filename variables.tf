@@ -65,7 +65,7 @@ variable "virtual_network_name" {
 }
 
 variable "subnet_config" {
-  type = map
+  type = map(any)
   default = {
     Dmz1 = {
       name      = "Dmz1"

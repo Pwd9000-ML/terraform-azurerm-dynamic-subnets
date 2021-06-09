@@ -12,8 +12,8 @@ provider "azurerm" {
 ##################################################
 locals {
   common_tags = {
-    billing_code    = var.billing_code[var.environment]
-    cost_center     = var.cost_center[var.lob]
+    billing_code   = var.billing_code[var.environment]
+    cost_center    = var.cost_center[var.lob]
     Environment    = var.environment
     LineOfBusiness = var.lob
     Region         = var.region[var.location]
@@ -27,6 +27,7 @@ locals {
     westeurope = "westeurope"
     centralus  = "centralus"
     eastasia   = "eastasia"
+    uksouth    = "uksouth"
   }
   # Error is input variable "location" does not match locals location map
   validate_input_location = local.locations[var.location]

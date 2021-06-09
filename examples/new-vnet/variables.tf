@@ -2,7 +2,7 @@
 # VARIABLES                                      #
 ##################################################
 variable "billing_code" {
-  type        = map(string)
+  type = map(string)
   default = {
     Development = "100"
     UAT         = "101"
@@ -14,7 +14,7 @@ variable "billing_code" {
   description = "Optional Input - Billing code map based on environment. (used for common tags defined in locals)"
 }
 variable "cost_center" {
-  type        = map(string)
+  type = map(string)
   default = {
     IT          = "IT"
     Development = "DEV"
@@ -66,6 +66,6 @@ variable "subscriptionid" {
   description = "Required Input - Subscription ID used for azurerm provider"
 }
 variable "subnet_config" {
-  type        = map
+  type        = map(any)
   description = "Required Input - Subnet Configuration"
 }

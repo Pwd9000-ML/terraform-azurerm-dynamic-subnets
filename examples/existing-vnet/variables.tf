@@ -14,6 +14,6 @@ variable "subscriptionid" {
   description = "Required Input - Subscription ID used for azurerm provider."
 }
 variable "subnet_config" {
-  type        = map
+  type        = map(any)
   description = "Required Input - Specify subnet configuration."
 }

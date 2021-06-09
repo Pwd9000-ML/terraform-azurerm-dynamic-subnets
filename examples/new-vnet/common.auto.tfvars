@@ -7,8 +7,8 @@ environment = "Testing"
 #e.g. IT, Development, Research
 lob = "Development"
 
-#e.g. westeurope, centralus, eastasia (input validated)
-location = "westeurope"
+#e.g. uksouth, westeurope, centralus, eastasia (input validated)
+location = "uksouth"
 
 #Vnet base IP address (When new VNET is created)
 network_ip = "10.2.0.0"
