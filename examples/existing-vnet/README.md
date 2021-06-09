@@ -26,18 +26,18 @@ Amend `subnet_config.auto.tfvars` to populate the existing VNET with specified s
 3. Log into azure using CLI "az login".
 4. **BUILD:**
 
-```hcl
-terraform init
-terraform plan -out deploy.tfplan
-terraform apply deploy.tfplan
-```
+    ```hcl
+    terraform init
+    terraform plan -out deploy.tfplan
+    terraform apply deploy.tfplan
+    ```
 
 5. **DESTROY:**
 
-```hcl
-terraform plan -destroy -out destroy.tfplan
-terraform apply destroy.tfplan
-```
+    ```hcl
+    terraform plan -destroy -out destroy.tfplan
+    terraform apply destroy.tfplan
+    ```
 
 ## Providers and terraform version requirements
   

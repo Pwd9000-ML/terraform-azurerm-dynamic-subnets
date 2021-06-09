@@ -43,13 +43,13 @@ variable "location" {
 variable "network_address_ip" {
   type        = string
   default     = "10.1.0.0"
-  description = "Optional Input - Network IP to contrsuct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  description = "Optional Input - Network IP to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 
 variable "network_address_mask" {
   type        = number
   default     = 22
-  description = "Optional Input - Network address mask to contrsuct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  description = "Optional Input - Network address mask to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 
 variable "virtual_network_rg_name" {

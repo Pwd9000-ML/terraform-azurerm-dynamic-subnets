@@ -41,11 +41,11 @@ variable "location" {
 }
 variable "network_ip" {
   type        = string
-  description = "Required Input - Network IP to contrsuct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  description = "Required Input - Network IP to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 variable "network_mask" {
   type        = number
-  description = "Required Input - Network address mask to contrsuct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  description = "Required Input - Network address mask to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 variable "prefix" {
   type        = string

@@ -23,18 +23,18 @@ Amend `subnet_config.auto.tfvars` to populate the newly created VNET with releva
 3. Log into azure using CLI "az login".
 4. **BUILD:**
 
-```HCL
-terraform init
-terraform plan -out deploy.tfplan
-terraform apply deploy.tfplan
-```
+    ```HCL
+    terraform init
+    terraform plan -out deploy.tfplan
+    terraform apply deploy.tfplan
+    ```
 
 5. **DESTROY:**
 
-```HCL
-terraform plan -destroy -out destroy.tfplan
-terraform apply destroy.tfplan
-```
+    ```HCL
+    terraform plan -destroy -out destroy.tfplan
+    terraform apply destroy.tfplan
+    ```
 
 ## Providers and terraform version requirements
   
