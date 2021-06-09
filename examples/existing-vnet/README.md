@@ -1,4 +1,4 @@
-# Terraform Example - Add subnets on existing Azure Vnet
+# Terraform Example - Add subnets on existing Azure VNET
 
 ## Description
 
