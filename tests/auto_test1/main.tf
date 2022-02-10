@@ -1,6 +1,6 @@
 
 terraform {
-  backend "remote" {}
+  backend "azurerm" {}
 }
 
 provider "azurerm" {
