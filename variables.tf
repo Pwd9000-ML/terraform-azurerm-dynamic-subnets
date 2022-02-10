@@ -36,7 +36,7 @@ variable "environment" {
 
 variable "location" {
   type        = string
-  default     = "westeurope"
+  default     = "uksouth"
   description = "Optional Input - Location in azure where resources will be created. (Only in effect on newly created Resource Group when variable:create_rg=true)"
 }
 
