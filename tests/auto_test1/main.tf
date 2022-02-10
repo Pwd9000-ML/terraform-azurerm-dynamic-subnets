@@ -7,7 +7,7 @@ provider "azurerm" {
 # MODULE TO TEST                                 #
 ##################################################
 module "dynamic-subnets-test" {
-  source = "../.."
+  source                  = "../.."
   network_address_ip      = var.network_ip
   network_address_mask    = var.network_mask
   virtual_network_rg_name = "${var.resource_group_name}${random_integer.num.result}"
