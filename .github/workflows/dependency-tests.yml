@@ -3,7 +3,7 @@
 ### If tests are successful the PR is automatically merged to master ###
 ### If the merge was completed the next patch version is released and the patch is bumped and pushed to terraform registry ###
 
-name: "Automated-Dependency-Tests"
+name: "Automated-Dependency-Tests-and-Release"
 on:
   workflow_dispatch:
   pull_request:
