@@ -1,3 +1,4 @@
+### This workflow will run only when Dependabot opens a PR on master ###
 name: "Automated-Dependency-Tests"
 on:
   workflow_dispatch:
@@ -35,7 +36,7 @@ jobs:
           arm_tenant_id: ${{ secrets.ARM_TENANT_ID }}             ## (Required - Dependabot Secrets) ARM Tenant ID
           github_token: ${{ secrets.GITHUB_TOKEN }} ## (Required) Needed to comment output on PR's. ${{ secrets.GITHUB_TOKEN }} already has permissions.
 
-##### If dependency tests successful merge pull request #####
+##### If dependency tests are successful merge the pull request #####
   merge_pr:
     needs: dependabot-plan-apply-destroy
     runs-on: ubuntu-latest
@@ -56,4 +57,18 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-##### Create new release based on next patch version of releases #####
+##### Create and automate new release based on next patch version of releases #####
+  release_new_version:
+    needs: merge_pr
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Create & push release to TF Registry 
+        id: bump
+        uses: zwaldowski/semver-release-action@v2
+        with:
+          prefix: v
+          bump: patch
+          github_token: ${{secrets.GITHUB_TOKEN}}
