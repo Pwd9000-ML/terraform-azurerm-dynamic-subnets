@@ -17,7 +17,7 @@ jobs:
     permissions:
       pull-requests: write
       issues: write
-      repository-projects: write
+      actions: read
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: Checkout
@@ -69,10 +69,19 @@ jobs:
       contents: write
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - name: Create & push release to TF Registry 
-        id: bump
+      - name: Determine version 
+        id: version
         uses: zwaldowski/semver-release-action@v2
         with:
-          prefix: v
           bump: patch
+          dry_run: true
           github_token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Create new release and push to registry 
+        id: release
+        uses: ncipollo/release-action@v1
+        with:
+          generateReleaseNotes: true
+          name: "v${{ steps.version.outputs.version }}"
+          tag: ${{ steps.version.outputs.version }}
+          token: ${{ secrets.GITHUB_TOKEN }}
