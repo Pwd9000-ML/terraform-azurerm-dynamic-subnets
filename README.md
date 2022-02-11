@@ -1,4 +1,4 @@
-![example workflow](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/actions/workflows/dependency-tests.yml/badge.svg)
+[![Automated-Test-and-Release](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/actions/workflows/dependency-tests.yml/badge.svg?event=release)](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/actions/workflows/dependency-tests.yml)
 
 # Module: Dynamic Subnets
 
