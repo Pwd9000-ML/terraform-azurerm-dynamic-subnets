@@ -1,4 +1,4 @@
-![example workflow](https://github.com/github/docs/actions/workflows/dependency-tests.yml/badge.svg)
+![example workflow](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/blob/master/.github/workflows/dependency-tests.yml/badge.svg)
 
 # Module: Dynamic Subnets
 
