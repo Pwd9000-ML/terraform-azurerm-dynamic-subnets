@@ -1,7 +1,6 @@
-![example workflow](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/blob/master/.github/workflows/dependency-tests.yml/badge.svg)
+![example workflow](https://github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets/actions/workflows/dependency-tests.yml/badge.svg)
 
 # Module: Dynamic Subnets
-
 ## Description
 
 Create dynamic subnets based on a subnet input config/variable input, on an existing or new Azure Virtual Network using Terraform.  
