@@ -10,12 +10,7 @@ This module can be used to do the following subnet tasks based on input:
 - Create a new resource group and Vnet and populate with subnets based on input variable subnet config.
 - Create a new Vnet in an existing resource group and populate with subnets based on input variable subnet config.
 - Populate subnets dynamically onto an existing Vnet in an existing resource group based on input variable subnet config.
-  
-## Providers and terraform version requirements
-  
-- terraform version ~> 1.1.0
-- provider "azurerm" ~> 2.95.0
-  
+
 ## Module Input variables
 
 - `common_tags` - (Optional) A map of key value pairs that is used to tag resources created. (Default: demo map).

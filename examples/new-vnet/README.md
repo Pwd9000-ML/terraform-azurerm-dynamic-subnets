@@ -35,11 +35,6 @@ Amend `subnet_config.auto.tfvars` to populate the newly created VNET with releva
     terraform plan -destroy -out destroy.tfplan
     terraform apply destroy.tfplan
     ```
-
-## Providers and terraform version requirements
-  
-- terraform version ~> 1.1.0
-- provider "azurerm" ~> 2.95.0
   
 ## Root module input variables
   
