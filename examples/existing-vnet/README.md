@@ -38,7 +38,7 @@ Amend `subnet_config.auto.tfvars` to populate the existing VNET with specified s
     terraform plan -destroy -out destroy.tfplan
     terraform apply destroy.tfplan
     ```
-    
+
 ## Root module Input variables
   
 - `resourcegroupname` - (Required) Specify the resource group name that contains the Azure Vnet.
