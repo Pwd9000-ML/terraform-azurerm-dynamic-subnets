@@ -11,7 +11,7 @@ variable "billing_code" {
     Testing     = "104"
     Production  = "105"
   }
-  description = "Optional Input - Billing code map based on environment. (used for common tags defined in locals)"
+  description = "Billing code map based on environment. (used for common tags defined in locals)"
 }
 variable "cost_center" {
   type = map(string)
@@ -20,41 +20,46 @@ variable "cost_center" {
     Development = "DEV"
     Research    = "RND"
   }
-  description = "Optional Input - Cost center map based on line of business. (used for naming conventions defined in locals)"
+  description = "Cost center map based on line of business. (used for naming conventions defined in locals)"
 }
 variable "dns_servers" {
   type        = list(string)
   default     = []
-  description = "Optional Input - Set custom dns config. If no values specified, this defaults to Azure DNS (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  description = "Set custom dns config. If no values specified, this defaults to Azure DNS (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 variable "environment" {
   type        = string
-  description = "Required Input - Value to describe the environment. Primarily used for tagging and naming resources. (used for naming conventions defined in locals)"
+  default     = "Development"
+  description = "Value to describe the environment. Primarily used for tagging and naming resources. (used for naming conventions defined in locals)"
 }
 variable "lob" {
   type        = string
-  description = "Required Input - Describes line of business. (used for naming conventions defined in locals; accepted values: IT, Development, Research)"
+  default     = "IT"
+  description = "Describes line of business. (used for naming conventions defined in locals; accepted values: IT, Development, Research)"
 }
 variable "location" {
   type        = string
-  description = "Required Input - Location in azure where resources will be created. (ONLY accepted values [validation]: westeurope, centralus, eastasia)"
+  default     = "uksouth"
+  description = "Location in azure where resources will be created. (ONLY accepted values [validation]: westeurope, centralus, eastasia)"
 }
 variable "network_ip" {
   type        = string
-  description = "Required Input - Network IP to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  default     = null
+  description = "Network IP to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 variable "network_mask" {
   type        = number
-  description = "Required Input - Network address mask to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
+  default     = null
+  description = "Network address mask to construct network address space. (Only in effect on newly created Vnet when variable:create_vnet=true)"
 }
 variable "prefix" {
   type        = string
   default     = "Demo"
-  description = "Required Input - Used for naming conventions defined in locals"
+  description = "Used for naming conventions defined in locals"
 }
 variable "region" {
   type        = map(string)
-  description = "Optional Input - Regional map based on location. (used for naming conventions defined in locals)"
+  description = "Regional map based on location. (used for naming conventions defined in locals)"
   default = {
     westeurope = "EMEA"
     centralus  = "NA"
@@ -64,7 +69,8 @@ variable "region" {
 }
 variable "subscriptionid" {
   type        = string
-  description = "Required Input - Subscription ID used for azurerm provider"
+  default     = null
+  description = "Subscription ID used for azurerm provider"
 }
 variable "subnet_config" {
   type = map(object({
@@ -72,5 +78,6 @@ variable "subnet_config" {
     mask      = number
     cidr_base = string
   }))
-  description = "Required Input - Subnet Configuration"
+  default     = {}
+  description = "Subnet Configuration"
 }
