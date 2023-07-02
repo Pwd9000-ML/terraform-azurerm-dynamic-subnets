@@ -65,7 +65,11 @@ variable "virtual_network_name" {
 }
 
 variable "subnet_config" {
-  type = map(any)
+  type = map(object({
+    name      = string
+    mask      = number
+    cidr_base = string
+  }))
   default = {
     Dmz1 = {
       name      = "Dmz1"

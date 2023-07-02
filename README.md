@@ -11,28 +11,6 @@ This module can be used to do the following subnet tasks based on input:
 - Create a new Vnet in an existing resource group and populate with subnets based on input variable subnet config.
 - Populate subnets dynamically onto an existing Vnet in an existing resource group based on input variable subnet config.
 
-## Module Input variables
-
-- `common_tags` - (Optional) A map of key value pairs that is used to tag resources created. (Default: demo map).
-- `create_rg` - (Optional) Create a new resource group for this deployment. (Set to false to use existing resource group).
-- `create_vnet` - (Optional) Create a new Azure Virtual Network for this deployment. (Set to false to use existing Azure Virtual Network).
-- `dns_entries` - (Optional) Set custom dns config. If no values specified, this defaults to Azure DNS (Only in effect on newly created Vnet when variable:`create_vnet=true`).
-- `environment` - (Optional) Value to describe the environment. Used for tagging. (Default: Development).
-- `location` - (Optional) Location in azure where resources will be created. (Only in effect on newly created Resource Group when variable:`create_rg=true`).
-- `network_address_ip` - (Optional) Network base IP to construct network address space. (Only in effect on newly created Vnet when variable:`create_vnet=true`).
-- `network_address_mask` - (Optional) Network address mask to construct network address space. (Only in effect on newly created Vnet when variable:`create_vnet=true`).
-- `virtual_network_rg_name` - (Optional) Name of the resource group the existing Vnet is in if `create_rg=false` / Name of the resource group the Vnet will be created in if `create_rg=true`.
-- `virtual_network_name` - (Optional) Name of the existing Vnet subnets will be created in if `create_vnet=false` / Name of the new Vnet that will be created if `create_vnet=true`.
-- `subnet_config` - (Optional) Subnet config maps for each subnet to be created in either existing or newly created VNET based on if `create_vnet=true/false`.
-  
-## Module Outputs
-
-Module outputs are only generated for new resources created in this module e.g. Resource Group and/or Azure Virtual network.  
-Outputs are not generated if subnets are populated on an existing Azure Virtual Network.  
-
-- `core_network_rg_id` - Output Resource Group ID. (Only if new resource group was created as part of this deployment).
-- `core_vnet_id` -  Output Azure Virtual Network ID. (Only if new Vnet was created as part of this deployment).
-
 ## Example 1
 
 Simple example where a new Resource Group and Vnet will be created (Default).  
@@ -88,3 +66,55 @@ module "dynamic-subnets" {
     virtual_network_name    = "My-VNET-Name"
 }
 ```
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.63.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.63.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_resource_group.core_network_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group) | resource |
+| [azurerm_subnet.dynamic](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet) | resource |
+| [azurerm_virtual_network.core_vnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network) | resource |
+| [azurerm_resource_group.core_network_rg](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group) | data source |
+| [azurerm_virtual_network.core_vnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/virtual_network) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | Optional Input - A map of key value pairs that is used to tag resources created. (Default: demo map) | `map(string)` | <pre>{<br>  "Description": "This is a demo built with Terraform",<br>  "Terraform": "True"<br>}</pre> | no |
+| <a name="input_create_rg"></a> [create\_rg](#input\_create\_rg) | Optional Input - Create a new resource group for this deployment. (Set to false to use existing resource group) | `bool` | `true` | no |
+| <a name="input_create_vnet"></a> [create\_vnet](#input\_create\_vnet) | Optional Input - Create a new Azure Virtual Network for this deployment. (Set to false to use existing Azure Virtual Network) | `bool` | `true` | no |
+| <a name="input_dns_entries"></a> [dns\_entries](#input\_dns\_entries) | Optional Input - Set custom dns config. If no values specified, this defaults to Azure DNS (Only in effect on newly created Vnet when variable:create\_vnet=true) | `list(string)` | `[]` | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Optional Input - Value to describe the environment. Used for tagging. (Default: Development) | `string` | `"Development"` | no |
+| <a name="input_location"></a> [location](#input\_location) | Optional Input - Location in azure where resources will be created. (Only in effect on newly created Resource Group when variable:create\_rg=true) | `string` | `"uksouth"` | no |
+| <a name="input_network_address_ip"></a> [network\_address\_ip](#input\_network\_address\_ip) | Optional Input - Network IP to construct network address space. (Only in effect on newly created Vnet when variable:create\_vnet=true) | `string` | `"10.1.0.0"` | no |
+| <a name="input_network_address_mask"></a> [network\_address\_mask](#input\_network\_address\_mask) | Optional Input - Network address mask to construct network address space. (Only in effect on newly created Vnet when variable:create\_vnet=true) | `number` | `22` | no |
+| <a name="input_subnet_config"></a> [subnet\_config](#input\_subnet\_config) | Optional Input - Subnet config map for each subnet to be created in either existing or newly created VNET based on. (create\_vnet=true/false) | `map(any)` | <pre>{<br>  "Dev": {<br>    "cidr_base": "10.1.2.0",<br>    "mask": 24,<br>    "name": "Dev"<br>  },<br>  "Dmz1": {<br>    "cidr_base": "10.1.0.0",<br>    "mask": 25,<br>    "name": "Dmz1"<br>  },<br>  "Dmz2": {<br>    "cidr_base": "10.1.0.128",<br>    "mask": 25,<br>    "name": "Dmz2"<br>  },<br>  "Prod": {<br>    "cidr_base": "10.1.1.0",<br>    "mask": 24,<br>    "name": "Prod"<br>  }<br>}</pre> | no |
+| <a name="input_virtual_network_name"></a> [virtual\_network\_name](#input\_virtual\_network\_name) | Optional Input - Name of the existing Vnet subnets will be created in. (create\_vnet=false) / Name of the new Vnet that will be created. (create\_vnet=true) | `string` | `"Terraform-CORE-VNET"` | no |
+| <a name="input_virtual_network_rg_name"></a> [virtual\_network\_rg\_name](#input\_virtual\_network\_rg\_name) | Optional Input - Name of the resource group the existing Vnet is in. (create\_rg=false) / Name of the resource group the Vnet will be created in. (create\_rg=true). | `string` | `"Terraform-CORE-Networking"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_core_network_rg_id"></a> [core\_network\_rg\_id](#output\_core\_network\_rg\_id) | Output Resource Group ID. (Only if new resource group was created as part of this deployment) |
+| <a name="output_core_vnet_id"></a> [core\_vnet\_id](#output\_core\_vnet\_id) | Output Azure Virtual Network ID. (Only if new Vnet was created as part of this deployment) |
+<!-- END_TF_DOCS -->

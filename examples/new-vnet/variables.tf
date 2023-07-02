@@ -67,6 +67,10 @@ variable "subscriptionid" {
   description = "Required Input - Subscription ID used for azurerm provider"
 }
 variable "subnet_config" {
-  type        = map(any)
+  type = map(object({
+    name      = string
+    mask      = number
+    cidr_base = string
+  }))
   description = "Required Input - Subnet Configuration"
 }
