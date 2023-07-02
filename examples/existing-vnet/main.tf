@@ -1,3 +1,8 @@
+terraform {
+  #backend "azurerm" {}
+  backend "local" { path = "terraform-example1.tfstate" }
+}
+
 ##################################################
 # PROVIDERS                                      #
 ##################################################
