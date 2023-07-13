@@ -85,7 +85,6 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-
 ##### Create and automate new release based on next patch version of releases #####
   release_new_version:
     needs: merge_pr
