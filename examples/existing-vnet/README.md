@@ -52,7 +52,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_dynamic-subnets"></a> [dynamic-subnets](#module\_dynamic-subnets) | github.com/Pwd9000-ML/terraform-azurerm-dynamic-subnets | n/a |
+| <a name="module_dynamic-subnets"></a> [dynamic-subnets](#module\_dynamic-subnets) | Pwd9000-ML/dynamic-subnets/azurerm | >= 1.2.0 |
 
 ## Resources
 
