@@ -16,7 +16,7 @@ provider "azurerm" {
 # MODULES                                        #
 ##################################################
 module "dynamic-subnets" {
-  source = "Pwd9000-ML/dynamic-subnets/azurerm"
+  source  = "Pwd9000-ML/dynamic-subnets/azurerm"
   version = ">= 1.2.0"
   providers = {
     azurerm = azurerm.core_network
