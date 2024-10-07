@@ -63,7 +63,7 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_resourcegroupname"></a> [resourcegroupname](#input\_resourcegroupname) | Specify the resource group name that contains the Azure Vnet. | `string` | `null` | no |
-| <a name="input_subnet_config"></a> [subnet\_config](#input\_subnet\_config) | Specify subnet configuration. | <pre>map(object({<br>    name      = string<br>    mask      = number<br>    cidr_base = string<br>  }))</pre> | `{}` | no |
+| <a name="input_subnet_config"></a> [subnet\_config](#input\_subnet\_config) | Specify subnet configuration. | <pre>map(object({<br/>    name      = string<br/>    mask      = number<br/>    cidr_base = string<br/>  }))</pre> | `{}` | no |
 | <a name="input_subscriptionid"></a> [subscriptionid](#input\_subscriptionid) | Subscription ID used for azurerm provider. | `string` | `null` | no |
 | <a name="input_virtualnetworkname"></a> [virtualnetworkname](#input\_virtualnetworkname) | Specify the Vnet name where subnets will be added. | `string` | `null` | no |
 
